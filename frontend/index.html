@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transparência Eleitoral</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header>
+    <div class="logo">
+      <span class="logo-icon">⚖</span>
+      <div>
+        <span class="logo-title">TRANSPARÊNCIA</span>
+        <span class="logo-sub">ELEITORAL</span>
+      </div>
+    </div>
+    <nav>
+      <button class="nav-btn active" onclick="mostrarSecao('inicio')">Início</button>
+      <button class="nav-btn" onclick="mostrarSecao('politicos')">Políticos</button>
+      <button class="nav-btn" onclick="mostrarSecao('sobre')">Sobre</button>
+    </nav>
+  </header>
+
+  <!-- INÍCIO -->
+  <section id="secao-inicio" class="secao ativa">
+    <div class="hero">
+      <div class="hero-tag">PLATAFORMA CÍVICA INDEPENDENTE</div>
+      <h1 class="hero-title">Fiscalize quem<br/><em>te representa.</em></h1>
+      <p class="hero-sub">Acesse dados reais sobre patrimônio, gastos, presença e projetos dos seus representantes eleitos.</p>
+      <button class="btn-primary" onclick="mostrarSecao('politicos')">Ver Políticos →</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num" id="stat-total">—</span>
+        <span class="stat-label">Políticos cadastrados</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" id="stat-gastos">—</span>
+        <span class="stat-label">Média de gastos/gabinete</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" id="stat-presenca">—</span>
+        <span class="stat-label">Média de presença</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLÍTICOS -->
+  <section id="secao-politicos" class="secao">
+    <div class="toolbar">
+      <input type="text" id="busca" placeholder="Buscar político..." oninput="filtrar()" />
+      <select id="filtro-estado" onchange="filtrar()">
+        <option value="">Todos os estados</option>
+      </select>
+      <select id="filtro-partido" onchange="filtrar()">
+        <option value="">Todos os partidos</option>
+      </select>
+    </div>
+
+    <div id="grid-politicos" class="grid-politicos"></div>
+  </section>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal-overlay" onclick="fecharModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="fecharModal()">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section id="secao-sobre" class="secao">
+    <div class="sobre-box">
+      <h2>Sobre o projeto</h2>
+      <p>A <strong>Transparência Eleitoral</strong> é uma plataforma cidadã que centraliza dados públicos sobre representantes eleitos brasileiros, permitindo que qualquer cidadão acompanhe e avalie o desempenho dos políticos de forma simples e acessível.</p>
+      <h3>Dados monitorados</h3>
+      <ul>
+        <li>💰 Patrimônio declarado ao TSE</li>
+        <li>🏛️ Gastos de gabinete (cota parlamentar)</li>
+        <li>📋 Presença nas votações</li>
+        <li>📜 Projetos aprovados no mandato</li>
+        <li>💬 Comentários e avaliações cidadãs</li>
+      </ul>
+      <h3>Fontes de dados</h3>
+      <p>Portal da Transparência · Câmara dos Deputados (dados abertos) · TSE · Senado Federal</p>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
