@@ -1,2 +1,0 @@
-# Transparencia-Eleitoral
-.
